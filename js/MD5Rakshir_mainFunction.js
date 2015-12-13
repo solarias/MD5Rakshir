@@ -46,9 +46,9 @@
 				player[num]["def_rage_3"]
 					= Math.floor(parseInt(code[16] + code[17], 16) /  ( 255 / ( ((game["stat"]["def_gap"] - game["stat"]["def_gap"]*(rate/100)) / 2) / game["stat"]["def_unit"] ) ) ) * game["stat"]["def_unit"] + ((game["stat"]["def_min"] + game["stat"]["def_gap"]*(rate/100)) / 2);
 			
-			//최대 크리티컬 게이지
+			//최대 크리티컬 게이지 (수치 뒤집기 - 높을수록 실제로는 낮게 나오도록)
 			player[num]["critical_init"]
-				= Math.floor(parseInt(code[18] + code[19], 16) /  ( 255 / ((game["stat"]["critical_gap"] - game["stat"]["critical_gap"]*(rate/100)) / game["stat"]["critical_unit"]) ) ) * game["stat"]["critical_unit"] + game["stat"]["critical_min"] + game["stat"]["critical_gap"]*(rate/100);
+				= game["stat"]["critical_max"] + game["stat"]["critical_min"] - (Math.floor(parseInt(code[18] + code[19], 16) /  ( 255 / ((game["stat"]["critical_gap"] - game["stat"]["critical_gap"]*(rate/100)) / game["stat"]["critical_unit"]) ) ) * game["stat"]["critical_unit"] + game["stat"]["critical_min"] + game["stat"]["critical_gap"]*(rate/100));
 				//크리티컬 대미지
 				player[num]["critical_damage"]
 					= Math.floor(parseInt(code[20] + code[21], 16) /  ( 255 / ((game["stat"]["critical_damage_gap"] - game["stat"]["critical_damage_gap"]*(rate/100)) / game["stat"]["critical_damage_unit"]) ) ) * game["stat"]["critical_damage_unit"] + game["stat"]["critical_damage_min"] + game["stat"]["critical_damage_gap"]*(rate/100);
