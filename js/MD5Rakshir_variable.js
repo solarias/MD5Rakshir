@@ -85,13 +85,9 @@ var player = [
 		//1. 주 능력치 (초기)
 		life_init : 0,//최초 체력
 		atk_init : 0,//최초 공격력
-			atk_rage_1 : 0,//분노레벨 1 상승 공격력
-			atk_rage_2 : 0,//분노레벨 2 상승 공격력
-			atk_rage_3 : 0,//분노레벨 3 상승 공격력
+			atk_rage : 0,//분노 시 상승 공격력
 		def_init : 0,//최초 방어력
-			def_rage_1 : 0,//분노레벨 1 상승 방어력
-			def_rage_2 : 0,//분노레벨 2 상승 방어력
-			def_rage_3 : 0,//분노레벨 3 상승 방어력
+			def_rage : 0,//분노 시 상승 방어력
 		critical_init : 0,//"초기에 주어진" 크리티컬 게이지
 		critical_damage : 0,//크리티컬 증폭 피해량
 		spd : 0,//속도

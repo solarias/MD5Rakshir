@@ -7,11 +7,12 @@
 		//캐릭터 설정 (입력된 일러스트 기반)
 		function setCharacter(num, name, rate) {
 			//1. MD5 문자열 추출 & 저장
+			var img_code = md5(name);
 			var code = md5(name + (new Date()).getSeconds().toString());
 			player[num]["code"] = code;
 			
 			//2. 전용 일러스트 표시 (Identicon)
-			var source = "data:image/png;base64," + new Identicon(code, 420).toString();
+			var source = "data:image/png;base64," + new Identicon(img_code, 420).toString();
 			$("#input_image_img_" + num.toString()).src = source;
 			$("#battle_image_" + num.toString()).src = source;
 			
@@ -860,8 +861,8 @@
 				//A-2. 분노 효과 발동
 					//A-2-1. 수치 변경
 					player[hit]["rage"] += 1;
-					player[hit]["atk_now"] += player[hit]["atk_rage_" + player[hit]["rage"].toString()];
-					player[hit]["def_now"] += player[hit]["def_rage_" + player[hit]["rage"].toString()];
+					player[hit]["atk_now"] += player[hit]["atk_rage"];
+					player[hit]["def_now"] += player[hit]["def_rage"];
 					//A-2-2. 시각화
 						//a. 라이프 바 & 체력 수치 & 색상
 						$("#battle_life_bar_" + hit.toString()).className = "battle_life_bar" + " " + "rage_" + player[hit]["rage"].toString();
