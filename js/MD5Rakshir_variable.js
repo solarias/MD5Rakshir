@@ -28,13 +28,6 @@ var game = {
 		70,//2단계
 		40//3단계
 	],
-	rage_name : [
-		"<span class='font_green'>평온</span>",//초기
-		"<span class='font_yellow'>긴장</span>",//1단계
-		"<span class='font_orange'>전력</span>",//2단계
-		"<span class='font_red'>폭주</span>",//3단계
-		""//패배
-	],
 	stat : {//능력치 세팅
 		life_max : 30000,
 		life_min : 5000,

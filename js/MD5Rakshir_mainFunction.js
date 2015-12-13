@@ -220,11 +220,9 @@
 					
 					//2. 속도 표시
 					for (var i=1;i<=2;i++) {
-						/*$("#battle_character_info_text_" + i.toString()).innerHTML = "속도";*/
-						$("#battle_character_info_text_" + i.toString()).innerHTML = "";
+						$("#battle_character_info_text_" + i.toString()).innerHTML = "속도";
 						$("#battle_character_info_text_" + i.toString()).style.display = "block";
-						/*$("#battle_character_info_num_" + i.toString()).innerHTML = player[i]["spd"].toString();*/
-						$("#battle_character_info_num_" + i.toString()).innerHTML = "";
+						$("#battle_character_info_num_" + i.toString()).innerHTML = player[i]["spd"].toString();
 						$("#battle_character_info_num_" + i.toString()).style.display = "block";
 					}
 					
@@ -869,7 +867,7 @@
 						$("#battle_life_bar_" + hit.toString()).className = "battle_life_bar" + " " + "rage_" + player[hit]["rage"].toString();
 						$("#battle_life_num_" + hit.toString()).className = "battle_life_num" + " " + "rage_" + player[hit]["rage"].toString();
 						//b. 분노 레벨 수치
-						$("#battle_stat_rage_" + hit.toString()).innerHTML = game["rage_name"][player[hit]["rage"]];
+						$("#battle_stat_rage_" + hit.toString()).innerHTML = player[hit]["rage"];
 						//c. 공격력 수치
 						battle_update(hit,"atk");
 						//방어력 수치
@@ -1233,7 +1231,7 @@
 								//b-3. 방어력
 								$("#battle_stat_def_" + i.toString()).innerHTML = thousand(player[i]["def_init"]);
 								//b-4. 분노 레벨
-								$("#battle_stat_rage_" + i.toString()).innerHTML = "<span class='font_green'>평온</span>";
+								$("#battle_stat_rage_" + i.toString()).innerHTML = "0";
 								//b-5. 크리티컬
 								removeClass($("#battle_critical_bar_" + i.toString()),"max");
 								$("#battle_critical_bar_" + i.toString()).style.height = "0%";
