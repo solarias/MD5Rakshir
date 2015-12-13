@@ -7,7 +7,7 @@
 		//캐릭터 설정 (입력된 일러스트 기반)
 		function setCharacter(num, name, rate) {
 			//1. MD5 문자열 추출 & 저장
-			var code = md5(name + (new Date()).getFullYear().toString() + ((new Date()).getMonth()+1).toString() + (new Date()).getDate().toString());
+			var code = md5(name + (new Date()).getSeconds().toString());
 			player[num]["code"] = code;
 			
 			//2. 전용 일러스트 표시 (Identicon)
