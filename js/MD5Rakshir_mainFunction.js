@@ -20,24 +20,36 @@
 			//체력
 			player[num]["life_init"]
 				= Math.floor(parseInt(code[0] + code[1], 16) / ( 255 / ((game["stat"]["life_gap"] - game["stat"]["life_gap"]*(rate/100))/game["stat"]["life_unit"]) ) ) * game["stat"]["life_unit"] + game["stat"]["life_min"] + game["stat"]["life_gap"]*(rate/100);
+			//소수 정리 (체력 - 소수 연산)
+			player[num]["life_init"] = Math.floor(player[num]["life_init"]);
 			
 			//공격력
 			player[num]["atk_init"]
 				= Math.floor(parseInt(code[2] + code[3], 16) /  ( 255 / ((game["stat"]["atk_gap"] - game["stat"]["atk_gap"]*(rate/100))/game["stat"]["atk_unit"]) ) ) * game["stat"]["atk_unit"] + game["stat"]["atk_min"] + game["stat"]["atk_gap"]*(rate/100);
+			//소수 정리 (공격력 - 소수 연산)
+			player[num]["atk_init"] = Math.floor(player[num]["atk_init"]);
 				//분노레벨 1 증가 공격력 - 공격력의 1/2 (최소단위는 유지)
 				player[num]["atk_rage"]
 					= Math.floor(parseInt(code[4] + code[5], 16) /  ( 255 / ( ((game["stat"]["atk_gap"] - game["stat"]["atk_gap"]*(rate/100)) / 2) / game["stat"]["atk_unit"] ) ) ) * game["stat"]["atk_unit"] + ((game["stat"]["atk_min"] + game["stat"]["atk_gap"]*(rate/100)) / 2);
+				//소수 정리 (분노레벨 1 증가 공격력 - 소수 연산)
+				player[num]["atk_rage"] = Math.floor(player[num]["atk_rage"]);
 			
 			//방어력
 			player[num]["def_init"]
 				= Math.floor(parseInt(code[6] + code[7], 16) /  ( 255 / ((game["stat"]["def_gap"] - game["stat"]["def_gap"]*(rate/100)) / game["stat"]["def_unit"]) ) ) * game["stat"]["def_unit"] + game["stat"]["def_min"] + game["stat"]["def_gap"]*(rate/100);
+			//소수 정리 (방어력 - 소수 연산)
+			player[num]["def_init"] = Math.floor(player[num]["def_init"]);
 				//분노레벨 1 증가 방어력 - 방어력의 1/2 (최소단위는 유지)
 				player[num]["def_rage"]
 					= Math.floor(parseInt(code[8] + code[9], 16) /  ( 255 / ( ((game["stat"]["def_gap"] - game["stat"]["def_gap"]*(rate/100)) / 2) / game["stat"]["def_unit"] ) ) ) * game["stat"]["def_unit"] + ((game["stat"]["def_min"] + game["stat"]["def_gap"]*(rate/100)) / 2);
+				//소수 정리 (노레벨 1 증가 방어력 - 소수 연산)
+				player[num]["def_rage"] = Math.floor(player[num]["def_rage"]);
 			
 			//최대 크리티컬 게이지 (수치 뒤집기 - 높을수록 실제로는 낮게 나오도록)
 			player[num]["critical_init"]
 				= game["stat"]["critical_max"] + game["stat"]["critical_min"] - (Math.floor(parseInt(code[10] + code[11], 16) /  ( 255 / ((game["stat"]["critical_gap"] - game["stat"]["critical_gap"]*(rate/100)) / game["stat"]["critical_unit"]) ) ) * game["stat"]["critical_unit"] + game["stat"]["critical_min"] + game["stat"]["critical_gap"]*(rate/100));
+			//소수 정리 (최대 크리티컬 게이지 - 소수 연산)
+			player[num]["critical_init"] = Math.floor(player[num]["critical_init"]);
 				//크리티컬 대미지
 				player[num]["critical_damage"]
 					= Math.floor(parseInt(code[12] + code[13], 16) /  ( 255 / ((game["stat"]["critical_damage_gap"] - game["stat"]["critical_damage_gap"]*(rate/100)) / game["stat"]["critical_damage_unit"]) ) ) * game["stat"]["critical_damage_unit"] + game["stat"]["critical_damage_min"] + game["stat"]["critical_damage_gap"]*(rate/100);
@@ -47,6 +59,8 @@
 			//속도
 			player[num]["spd"]
 				= Math.floor(parseInt(code[14] + code[15], 16) / ( 255 / ((game["stat"]["spd_gap"] - game["stat"]["spd_gap"]*(rate/100))/game["stat"]["spd_unit"]) ) ) * game["stat"]["spd_unit"] + game["stat"]["spd_min"] + game["stat"]["spd_gap"]*(rate/100);
+			//소수 정리 (속도 - 소수 연산)
+			player[num]["spd"] = Math.floor(player[num]["spd"]);
 			
 			//4. 기타 능력치 변경
 			player[num]["life_now"] = player[num]["life_init"];
