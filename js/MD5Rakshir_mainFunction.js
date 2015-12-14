@@ -8,7 +8,7 @@
 		function setCharacter(num, name, rate) {
 			//1. MD5 문자열 추출 & 저장
 			var img_code = md5(name);
-			var code = md5(name + (new Date()).getSeconds().toString());
+			var code = md5(name + (new Date()).getTime().toString());
 			player[num]["code"] = code;
 			
 			//2. 전용 일러스트 표시 (Identicon)
@@ -1074,8 +1074,6 @@
 								game["end"] = 1;
 								//c. 패배 캐릭터 투명도 표시 (="1")
 								$("#battle_image_" + hit.toString()).style.opacity = "1";
-								//d. 분노레벨 표시
-								$("#battle_stat_rage_" + hit.toString()).innerHTML = "";
 							//step 1~9
 							default:
 								//a. 패배 캐릭터 서서히 사라짐

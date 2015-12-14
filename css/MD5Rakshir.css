@@ -501,11 +501,11 @@ body {
 			position:absolute;
 			left:-1px;
 			bottom:-1px;
-			z-index:20;
+			z-index:30;
 			
 			padding:5px;
 			width:210px;
-			height:225px;
+			height:240px;
 			
 			background:white;
 			border:1px black solid;
@@ -555,7 +555,7 @@ body {
 						font-size:20px;
 						text-align:center;
 					}
-				#input_option_sound {
+				#input_option_bgm, #input_option_sfx {
 					float:left;
 					
 					width:20px;
@@ -563,7 +563,7 @@ body {
 					
 					display:block;
 				}
-					#input_option_sound_label {
+					#input_option_bgm_label, #input_option_sfx_label {
 						float:left;
 						
 						margin-left:5px;
@@ -572,7 +572,7 @@ body {
 						
 						display:block;
 					}
-					#input_option_sound:hover, #input_option_sound_label:hover {
+					#input_option_bgm:hover, #input_option_sfx:hover, #input_option_bgm_label:hover, #input_option_sfx_label:hover {
 						text-decoration:underline;
 						
 						cursor:pointer;
@@ -608,7 +608,7 @@ body {
 			position:absolute;
 			top:4px;
 			left:4px;
-			z-index:25;
+			z-index:35;
 			
 			padding:0px 10px;
 			width:198px;

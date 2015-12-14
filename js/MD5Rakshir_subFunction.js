@@ -83,33 +83,32 @@
 //컨텐츠 관련
 	//BGM 실행
 	function bgm(name) {
-		//A. sound가 켜져있을 때만 실행
-		if (game["sound"] == 1) {
+		//A. bgm이 켜져있을 때만 실행
+		if (game["bgm"] == 1) {
 			
-			//1. 이름 - "" : BGM 실행 정지
-			if (name == "") {
-				//1-1. BGM 정지
+			//1. IF (기존 실행중인 BGM이 있으면)
+			if (audio_bgm != "") {
+				//1-1. "일단" BGM 실행 정지
 				audio_bgm.pause();
 				audio_bgm.currentTime = 0;
-			//2. 나머지 : 해당 '이름' bgm 실행
-			} else {
-				//1-1. BGM 정지
-				audio_bgm.pause();
-				audio_bgm.currentTime = 0;
-				//1-2. 새 BGM 실행
+				//1-2. "일단" audio_bgm 음악 제거
+				audio_bgm = "";
+			}
+			//2. IF (이름이 ""이 아니면)
+			if (name != "") {
+				//2-1. 해당 '이름'의 bgm 실행
 				audio_bgm = track_bgm[name];
 				audio_bgm.loop = true;
 				audio_bgm.volume = 0.5;
 				audio_bgm.play();
 			}
-			
 		}
 	}
 	
 	//사운드이펙트 실행
 	function sfx(name, vol) {
-		//A. sound가 켜져있을 때만 실행
-		if (game["sound"] == 1) {
+		//A. sfx가 켜져있을 때만 실행
+		if (game["sfx"] == 1) {
 			
 			//a. 이름 - "" : 모든 사운드이펙트 실행 정지
 			if (name == "") {

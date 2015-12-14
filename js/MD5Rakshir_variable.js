@@ -6,14 +6,15 @@ var game = {
 	//초기 정보
 	theme_selected : "random",//테마 (배경화면 & BGM)
 	theme : "",//테마 (배경화면 & BGM)
-	sound : 1,//사운드 출력여부 (-1 : 미지원, 0 : OFF, 1: ON)
+	bgm : 1,//BGM 출력여부 (-1 : 미지원, 0 : OFF, 1: ON)
+	sfx : 1,//사운드 이펙트 출력여부 (-1 : 미지원, 0 : OFF, 1: ON)
 	speed : 1,//게임 속도 (기본 속도 : 1.2)
 	FPS : 60,//FPS
 		//
 		get real_FPS () {//변형된 FPS (게임속도 * FPS)
 			return this["FPS"] * this["speed"];
 		},
-	turn_set : 40,//전투 턴 (세팅)
+	turn_set : 30,//전투 턴 (세팅)
 	turn_remain : 0,//전투 턴 (남음)
 	upload : [//각 플레이어 업로드 여부
 		"",//더미
@@ -218,7 +219,8 @@ var imageList = [];
 		//에러 방지용
 		alert("※ 현재 브라우저에서는 사운드 출력을 지원하지 않습니다.");
 		//사운드 실행 방지
-		game["sound"] = -1;
+		game["bgm"] = -1;
+		game["sfx"] = -1;
 	};
 	//전체 사운드 이펙트 리스트
 		//※ value : 단순 문자열을 붙입
@@ -242,7 +244,7 @@ var imageList = [];
 	//음악 실행용 변수
 	var audio_bgm;
 	try {
-		audio_bgm = new Audio("http://cfile231.uf.daum.net/attach/257F5B4556220C6F2E3D4E");//배경음악 - 한 번에 하나씩
+		audio_bgm = "";//배경음악 - 한 번에 하나씩
 	} catch(e) {}
 	//효과음 - 한 번에 여러개 (soundList에서 관리)
 	

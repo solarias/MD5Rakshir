@@ -224,12 +224,20 @@ function run() {
 			game["speed"] = $("#input_option_speed").value;
 		//d. 배경 테마 적용
 			game["theme_selected"] = $("#input_option_theme").value;
-		//e. 사운드 적용 (미지원이 아닐 때만)
-			if (game["sound"] != -1) {
-				if ($("#input_option_sound").checked) {
-					game["sound"] = 1;
+		//e. BGM 적용 (미지원이 아닐 때만)
+			if (game["bgm"] != -1) {
+				if ($("#input_option_bgm").checked) {
+					game["bgm"] = 1;
 				} else {
-					game["sound"] = 0;
+					game["bgm"] = 0;
+				}
+			}
+		//f. 사운드 이펙트 적용 (미지원이 아닐 때만)
+			if (game["sfx"] != -1) {
+				if ($("#input_option_sfx").checked) {
+					game["sfx"] = 1;
+				} else {
+					game["sfx"] = 0;
 				}
 			}
 	//2. 버튼 설정
