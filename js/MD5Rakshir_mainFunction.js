@@ -1240,7 +1240,7 @@
 								$("#battle_critical_bar_" + i.toString()).style.height = "0%";
 						//E-2. 캐릭터 이미지, 이펙트
 							//a. 캐릭터 이미지
-							$("#battle_image_" + i.toString()).opacity = "1";
+							$("#battle_image_" + i.toString()).style.opacity = "1";
 							$("#battle_image_" + i.toString()).style.display = "block";
 							//b. 캐릭터 유리
 							$("#battle_glass_" + i.toString()).style.backgroundPosition = "0px 0px";
