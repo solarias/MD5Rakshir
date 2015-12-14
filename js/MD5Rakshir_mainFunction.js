@@ -41,6 +41,8 @@
 				//크리티컬 대미지
 				player[num]["critical_damage"]
 					= Math.floor(parseInt(code[12] + code[13], 16) /  ( 255 / ((game["stat"]["critical_damage_gap"] - game["stat"]["critical_damage_gap"]*(rate/100)) / game["stat"]["critical_damage_unit"]) ) ) * game["stat"]["critical_damage_unit"] + game["stat"]["critical_damage_min"] + game["stat"]["critical_damage_gap"]*(rate/100);
+				//소수 정리 (크리티컬 대미지 - 소수 연산)
+				player[num]["critical_damage"] = Math.floor(player[num]["critical_damage"]*10)/10;
 				
 			//속도
 			player[num]["spd"]
