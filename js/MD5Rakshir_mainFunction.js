@@ -11,12 +11,16 @@
 			var code = md5(name + (new Date()).getTime().toString());
 			player[num]["code"] = code;
 			
-			//2. 전용 일러스트 표시 (Identicon)
-			var source = "data:image/png;base64," + new Identicon(img_code, 420).toString();
+			//2. 전용 일러스트 표시 (562종 이미지 중 하나)
+			var img_num = Math.floor((parseInt(img_code[28] + img_code[29] + img_code[30] + img_code[31],16) % 562) + 1).toString();
+			while (img_num.length < 3) {
+				img_num = "0" + img_num;
+			}
+			var source = "./images/character/img_" + img_num + ".png";
 			$("#input_image_img_" + num.toString()).src = source;
 			$("#battle_image_" + num.toString()).src = source;
 			
-			//4. 초기 능력치 산출
+			//3. 초기 능력치 산출
 			//체력
 			player[num]["life_init"]
 				= Math.floor(parseInt(code[0] + code[1], 16) / ( 255 / ((game["stat"]["life_gap"] - game["stat"]["life_gap"]*(rate/100))/game["stat"]["life_unit"]) ) ) * game["stat"]["life_unit"] + game["stat"]["life_min"] + game["stat"]["life_gap"]*(rate/100);
